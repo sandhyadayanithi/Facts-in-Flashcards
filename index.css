@@ -1,0 +1,151 @@
+*{
+  box-sizing: border-box;
+}
+
+:root{
+  --background:linear-gradient(90deg,rgb(175, 223, 241),rgb(251, 255, 251));
+  --text-color:rgb(4, 4, 45);
+  --heading-color:rgb(5, 5, 75);
+}
+
+.dark-mode{
+  --background:linear-gradient(90deg,rgb(10, 30, 36),rgb(74, 74, 74));
+  --text-color:rgb(255, 255, 255);
+  --heading-color:rgb(237, 237, 237);
+}
+
+body{
+  background: var(--background);
+  max-width: 1200px;
+  margin-inline: auto;
+}
+
+h1{
+  font-size: 3rem;
+  text-align: center;
+  color: var(--heading-color);
+}
+
+.para{
+  text-align: center; 
+  color:var(--text-color); 
+  font-size: 1.2rem;
+}
+
+p{
+  color: var(--text-color);
+  line-height: 10px;
+}
+
+ul li{
+  color: var(--text-color);
+}
+
+.search-box{
+  display: flex;
+  justify-content: space-around;
+  margin-block-end: 40px;
+}
+
+.search-box input{
+  border-radius: 20px;
+  padding:10px 20px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  border: 1px ;
+}
+
+.search-box input:focus { 
+  box-shadow: 0 0 10px rgba(37, 74, 155, 0.5); 
+  background-color: #fff; 
+  outline: none;
+}
+
+.theme-toggle{
+  width:35px;
+  height:35px;
+  border-radius: 50%;
+  display:flex;
+  justify-content: center;
+  border:0;
+  position: fixed;
+  top:38px;
+  right:20px;
+  cursor: pointer;
+  background-color: var(--text-color);
+}
+.theme-toggle img:last-child{
+  display: none;
+}
+
+.dark-mode .theme-toggle img:first-child{
+  display:none;
+}
+
+.dark-mode .theme-toggle img:last-child{
+  display:block;
+}
+
+.cards{
+  display: flex;
+  gap:10px;
+  background: inherit;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card{
+  position: relative;
+  perspective: 1000px;
+  float: left;
+}
+
+.card .front {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
+  width: 280px;
+  height: 320px;
+  text-align: center;
+  padding:10px;
+  padding-bottom: 20px;
+  border-radius: 25px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+.card .back {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
+  width: 280px;
+  height: 320px;
+  text-align: start;
+  padding:10px;
+  border-radius: 25px;
+  transform: rotateY(90deg);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card:hover .front{
+  animation: flip 1s ease-in forwards;
+}
+
+.card:hover .back{
+  animation: flip 1s 1s ease-out forwards reverse;
+}
+
+@keyframes flip{
+  from{transform: rotateY(0deg);}
+  to{transform: rotateY(90deg);}
+}
