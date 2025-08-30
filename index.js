@@ -20,7 +20,7 @@ function renderCards(info){
             <li>${item.fact1}</li>
             <li>${item.fact2}</li>
             <li>${item.fact3}</li>
-            <li>${item.fact3}</li>
+            <li>${item.fact4}</li>
           </ul>
         </div>
       </div>
